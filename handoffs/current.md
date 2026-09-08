@@ -1,34 +1,32 @@
 # Current handoff
 
 **Last updated:** September 8, 2026  
-**Checkpoint:** Part 1 planning setup — committed and pushed; application code not started.
+**Checkpoint:** Part 2 implementation — complete and verified locally on `feature/booking-history`; uncommitted and unmerged.
 
 ## What exists
 
-- A new local Git repository on `main`.
-- `README.md` describing the constrained prototype, technology choices, status, repository map, attribution, and planned persistence lifetime.
-- `AGENTS.md` with project boundaries, required behavior, review rules, and Git plan.
-- `design/application-design.md` with four-layer decomposition, planned API contract, both flows, error/empty cases, and storage lifetime.
-- `design/reference-observations.md` with Expedia URL, observed public interaction patterns, an original scope sketch, and attribution boundary.
-- An ordered prompt record and evidence log.
+- The Part 1 planning checkpoint is preserved on `main` and pushed to GitHub.
+- A React/Vite client with search, results, selected-stay, traveler, confirmation, booking-history, empty, loading, and validation-error states.
+- An Express API that returns a synthetic Asheville catalog, validates bookings, calculates totals, creates confirmation codes, and reads/writes `server/data/bookings.json`.
+- Five automated checks: three validation tests and two HTTP API/persistence tests.
+- Updated README, application design, reference observations, AGENTS instructions, prompt records, and evidence log.
 
 ## What has been checked
 
-- The repository was initialized locally on branch `main`.
-- The public Expedia Hotels page was reviewed for broad observable search patterns: destination, dates, travelers, search action, results, price/rating, and refundability cues.
-- Documentation consistency has been reviewed: it labels `client/` and `server/` as planned placeholders, not working features.
+- `npm run test` passed: 5 tests, including API creation and persisted-history retrieval.
+- `npm run build` passed: Vite production build completed successfully.
+- Browser checks completed against the locally running app: Asheville search returns three results; booking Blue Ridge Lodge creates a confirmation; that booking is present after browser refresh; blank traveler fields produce server validation errors; and empty history gives a clear next action after test data is reset.
+- The browser test used only synthetic `Jordan Lee` / `jordan@example.test` details. The booking file has been reset to `[]` for the clean initial state.
 
 ## What is incomplete
 
-- No React/Vite project, Express server, API routes, seed catalog, JSON storage implementation, styles, tests, screenshots, or browser verification yet exist.
-- The Part 1 planning checkpoint is pushed to `main` at commit `79749f7` (`chore: integrate initial GitHub repository`), which includes documentation commit `50d5cdb` (`docs: add Part 1 application design and setup`), authored as Trey Foerster.
-- The originally supplied `hello-agent` repository was inspected and found to contain an unrelated calculator project; it was not changed.
-- The intended GitHub repository is `treyfoerster41-creator/IST-402-Project-1`; its one-line initial README was safely integrated, and the Part 1 checkpoint is pushed to its `main` branch.
-- The feature branch `feature/booking-history` has not been created.
+- The implementation files and final documentation updates are uncommitted on `feature/booking-history`.
+- A focused manual file review and a post-merge browser check on `main` remain required before final submission.
+- The Part 1 planning checkpoint is on GitHub `main`, including commit `50d5cdb` (`docs: add Part 1 application design and setup`) and its integration record `79749f7`.
 
 ## Next concrete task
 
-Create `feature/booking-history`, scaffold the React client and Express server, then implement `GET /api/properties` with a synthetic hotel catalog.
+Review `git diff` and the implementation files, commit the accepted feature-branch work, merge it to `main`, push `main`, rerun `npm run test` and `npm run build`, and repeat the browser booking/history walkthrough on merged `main`.
 
 ## Resume checklist for a fresh agent session
 

@@ -1,6 +1,7 @@
-# Planned frontend
+# Frontend
 
-This folder will contain the React/Vite client. At the Part 1 checkpoint it is intentionally a placeholder, not a runnable application.
+This folder contains the React/Vite client for Stayfinder.
 
-Planned responsibilities: route/view state, search and traveler form state, API calls, loading/error/empty states, and rendering server-returned totals and confirmation details.
+Responsibilities: view state, search and traveler form state, API calls, loading/error/empty states, and rendering totals and confirmation details returned by the server. The client proxies `/api` calls to the local Express server at port 3001 during development.
 
+Run both client and server together from the repository root with `npm run dev`.
