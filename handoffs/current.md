@@ -1,11 +1,12 @@
 # Current handoff
 
 **Last updated:** September 8, 2026  
-**Checkpoint:** Part 2 implementation — complete and verified locally on `feature/booking-history`; uncommitted and unmerged.
+**Checkpoint:** Part 2 implementation — reviewed, merged into `main`, pushed, and browser-verified after merge.
 
 ## What exists
 
-- The Part 1 planning checkpoint is preserved on `main` and pushed to GitHub.
+- The Part 1 planning checkpoint is preserved in `main` history.
+- The reviewed implementation is merged and pushed to GitHub `main` at `b98bf81` (`feat: merge hotel booking and history`).
 - A React/Vite client with search, results, selected-stay, traveler, confirmation, booking-history, empty, loading, and validation-error states.
 - An Express API that returns a synthetic Asheville catalog, validates bookings, calculates totals, creates confirmation codes, and reads/writes `server/data/bookings.json`.
 - Five automated checks: three validation tests and two HTTP API/persistence tests.
@@ -20,13 +21,12 @@
 
 ## What is incomplete
 
-- The implementation files and final documentation updates are uncommitted on `feature/booking-history`.
-- A focused manual file review and a post-merge browser check on `main` remain required before final submission.
 - The Part 1 planning checkpoint is on GitHub `main`, including commit `50d5cdb` (`docs: add Part 1 application design and setup`) and its integration record `79749f7`.
+- A brief screencast and the Canvas final-submission entry remain student tasks. The application starts with `server/data/bookings.json` set to `[]`.
 
 ## Next concrete task
 
-Review `git diff` and the implementation files, commit the accepted feature-branch work, merge it to `main`, push `main`, rerun `npm run test` and `npm run build`, and repeat the browser booking/history walkthrough on merged `main`.
+Create a brief screencast showing the empty-history state, a booking confirmation, and the resulting history record. Then submit the GitHub repository URL, final `main` commit, screencast, design, verification evidence, and this handoff in Canvas.
 
 ## Resume checklist for a fresh agent session
 

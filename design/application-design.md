@@ -103,4 +103,4 @@ React/Vite keeps the visible flow organized into small reusable components witho
 4. The client has results, selection, booking, confirmation, history, empty, and error states.
 5. Five automated checks pass: three validation tests plus two API/persistence tests. The production client build passes.
 6. Browser verification demonstrated a successful booking, persisted history after refresh, empty history, and server-returned required-field errors.
-7. The next repository step is final manual review, commit of the feature branch, merge to `main`, and post-merge browser verification.
+7. The reviewed feature branch was merged to `main` and pushed at merge commit `b98bf81`. The next submission step is a brief screencast of the verified flows.

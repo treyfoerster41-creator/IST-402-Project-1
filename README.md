@@ -4,7 +4,7 @@ Stayfinder is a deliberately small, local hotel-booking prototype inspired by th
 
 ## Assignment status
 
-Part 1 is preserved on `main`. The working Part 2 implementation is complete and browser-verified on `feature/booking-history`, pending final student review, commit, merge, and GitHub push. See [the current handoff](handoffs/current.md) for the authoritative status.
+Part 1 is preserved in the `main` history. The Part 2 implementation was reviewed, merged into `main`, pushed to GitHub, and browser-verified after the merge. See [the current handoff](handoffs/current.md) for the authoritative status.
 
 ## Intended user flows
 
