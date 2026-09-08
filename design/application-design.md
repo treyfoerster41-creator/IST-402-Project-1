@@ -15,7 +15,7 @@ Out of scope: payment, cancellation, authentication, multiple rooms, live availa
 | Data | Synthetic hotel catalog; selected hotel, destination, date range, traveler, price, booking ID, status, and timestamp | Hotel names, ratings, nightly prices, trip dates, guest name, and confirmation number |
 | Persistence | Server reads/writes bookings to `server/data/bookings.json`; seed hotel catalog remains source-controlled | Booking stays available after refresh and normal server restart |
 
-### Data model (planned)
+### Data model
 
 ```text
 Property
@@ -29,15 +29,15 @@ Booking
 
 All records are synthetic. `Booking` snapshots the display-critical property values so history remains understandable even if the seed catalog changes later.
 
-## Frontend/backend contract (planned)
+## Frontend/backend contract
 
 | HTTP request | Server responsibility | Client use |
 | --- | --- | --- |
-| `GET /api/properties?destination=...` | return the matching synthetic hotel list; reject/return an empty list for unsupported destinations | render loading, results, or no-results feedback |
-| `POST /api/bookings` | validate request, find property, calculate nights/total, create confirmation, persist booking | show field/general error or confirmation screen |
-| `GET /api/bookings` | read persisted booking records, newest first | render history or empty-history state |
+| `GET /api/properties?destination=...` | returns the three synthetic properties only for `Asheville`; otherwise returns an empty list | render results or no-results feedback |
+| `POST /api/bookings` | validates payload, finds property, calculates nights/total, creates confirmation, persists booking; returns `201` or `400` with safe field errors | show field/general error or confirmation screen |
+| `GET /api/bookings` | reads persisted booking records, newest first | render history or empty-history state |
 
-The exact error status codes and request schemas will be documented when the API is implemented.
+The client never writes the data file or generates a confirmation/total. Those values always come from the server response.
 
 ## Flow 1 — make a simulated booking
 
@@ -89,17 +89,18 @@ flowchart TD
 
 ## Storage lifetime
 
-The planned server will own `server/data/bookings.json`. Browser refresh does not clear it because history is fetched from the server. A normal server restart also preserves records because the server reloads the same JSON file. Removing that file manually resets the prototype. This behavior is intentional and must be demonstrated in Part 2.
+The server owns `server/data/bookings.json`. Browser refresh does not clear it because history is fetched from the server. A normal server restart also preserves records because the server reloads the same JSON file. Resetting that file to an empty JSON array clears the prototype. This behavior was browser-verified in the implementation branch.
 
 ## Technology decision rationale
 
 React/Vite keeps the visible flow organized into small reusable components without imposing a large framework. Express keeps the API and business rules explicit and inspectable. JSON over HTTP makes the client/server boundary visible in browser developer tools. A JSON file is sufficient for a single-user synthetic classroom prototype and makes persistence concrete; it is not appropriate for concurrent or production use.
 
-## Planned implementation sequence
+## Implementation and verification status
 
-1. Scaffold the client and server, then make the server return synthetic properties.
-2. Build the search/results/selection interface against the API.
-3. Implement booking validation, JSON persistence, and confirmation.
-4. Implement history and empty/error states.
-5. Manually review, test in a browser, capture evidence, and merge the feature branch.
-
+1. React/Vite client and Express server have been created.
+2. The server returns a source-controlled synthetic Asheville catalog.
+3. Booking validation, total calculation, confirmation creation, and JSON persistence are implemented on the server.
+4. The client has results, selection, booking, confirmation, history, empty, and error states.
+5. Five automated checks pass: three validation tests plus two API/persistence tests. The production client build passes.
+6. Browser verification demonstrated a successful booking, persisted history after refresh, empty history, and server-returned required-field errors.
+7. The next repository step is final manual review, commit of the feature branch, merge to `main`, and post-merge browser verification.
