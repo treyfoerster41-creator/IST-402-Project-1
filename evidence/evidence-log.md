@@ -9,6 +9,7 @@ This log connects material instructions to accepted work, checks, decisions, and
 | 2026-09-08 | Part 1 repository requirements | Added README, AGENTS instructions, design, prompt record, evidence log, and handoff. | Documentation cross-checked against the stated Part 1 requirements. | Awaiting student review, initial commit, and remote push. |
 | 2026-09-08 | Student-provided GitHub URL | Created local Part 1 checkpoint `7496620` and inspected the remote before any push. | Remote `main` was found to contain an unrelated calculator application; no remote history was changed. | Student must choose a separate empty repository or explicitly authorize replacing the existing remote main. |
 | 2026-09-08 | Student-provided IST-402 repository URL | Inspected the intended repository before connecting it. | Its `main` contained only GitHub's one-line initial README; it is safe to integrate with the assignment checkpoint. | Push the checkpoint, then begin implementation on the planned feature branch. |
+| 2026-09-08 | Part 1 Git checkpoint requirement | Pushed the documentation checkpoint to `main` at `79749f7`, preserving the remote's initial commit without a force-push. | Local `main` was confirmed to track `origin/main` after the push. | Create the planned implementation branch before substantive application code. |
 
 ## AI/tool disclosure
 

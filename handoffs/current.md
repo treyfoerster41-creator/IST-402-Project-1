@@ -1,7 +1,7 @@
 # Current handoff
 
 **Last updated:** September 8, 2026  
-**Checkpoint:** Part 1 planning setup — documentation complete; application code not started.
+**Checkpoint:** Part 1 planning setup — committed and pushed; application code not started.
 
 ## What exists
 
@@ -21,14 +21,14 @@
 ## What is incomplete
 
 - No React/Vite project, Express server, API routes, seed catalog, JSON storage implementation, styles, tests, screenshots, or browser verification yet exist.
-- A local Part 1 planning checkpoint exists at commit `7496620` (`docs: add Part 1 application design and setup`), authored as Trey Foerster.
+- The Part 1 planning checkpoint is pushed to `main` at commit `79749f7` (`chore: integrate initial GitHub repository`), which includes documentation commit `50d5cdb` (`docs: add Part 1 application design and setup`), authored as Trey Foerster.
 - The originally supplied `hello-agent` repository was inspected and found to contain an unrelated calculator project; it was not changed.
-- The intended GitHub repository is `treyfoerster41-creator/IST-402-Project-1`. Its existing `main` has only GitHub's one-line initial README. The local project README will replace that bootstrap file as part of safely integrating the Part 1 checkpoint.
-- The feature branch `feature/booking-history` has not been created; create it only after the Part 1 checkpoint is pushed.
+- The intended GitHub repository is `treyfoerster41-creator/IST-402-Project-1`; its one-line initial README was safely integrated, and the Part 1 checkpoint is pushed to its `main` branch.
+- The feature branch `feature/booking-history` has not been created.
 
 ## Next concrete task
 
-Push the completed Part 1 planning checkpoint to the intended GitHub repository. Then create `feature/booking-history` and scaffold the React client and Express server before implementing `GET /api/properties`.
+Create `feature/booking-history`, scaffold the React client and Express server, then implement `GET /api/properties` with a synthetic hotel catalog.
 
 ## Resume checklist for a fresh agent session
 
