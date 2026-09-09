@@ -1,7 +1,7 @@
 # Current handoff
 
 **Last updated:** September 9, 2026  
-**Checkpoint:** Part 1 implementation complete and verified locally; awaiting student VS Code review, checkpoint commit, and GitHub push.
+**Checkpoint:** Part 1 implementation checkpoint `dc413fd` created after student VS Code review; final documentation update and approved remote replacement are next.
 
 ## What exists
 
@@ -21,10 +21,10 @@
 
 ## What remains
 
-- The student must manually scan the changed project files in VS Code and accept them.
-- Add any desired repository-stored browser screenshots to the report/evidence before Canvas upload.
-- Commit the correct Part 1 checkpoint and force-push the approved rebuilt `main` while retaining the archive branch.
+- The exact Part 1 implementation checkpoint is `dc413fd`.
+- The previous incorrect React/Express project is preserved at `archive/react-express-prototype`.
+- Force-push the approved rebuilt `main` with this final documentation update, then upload `report.md` to Canvas.
 
 ## Next concrete task
 
-After the student review, commit the Part 1 scope, force-push the rebuilt `main`, and replace the pending commit text in `report.md` with the exact GitHub commit link before upload.
+Force-push the rebuilt, reviewed Part 1 `main` to GitHub. Then upload `report.md` to the Part 1 Canvas submission and retain `dc413fd` as the implementation checkpoint identifier.

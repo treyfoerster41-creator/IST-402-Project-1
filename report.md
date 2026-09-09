@@ -4,7 +4,7 @@
 
 Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1)
 
-Part 1 submitted commit: **pending final VS Code review and checkpoint commit**.
+Part 1 implementation checkpoint: [`dc413fd`](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/dc413fdca0d0ba11ea1fbfe8405c57541004a7e6)
 
 ## Implementation
 
@@ -14,7 +14,7 @@ The Python/FastAPI backend in [`backend/`](backend/) reads the supplied `hotels.
 
 ## Verification
 
-The student must complete a final manual scan of the changed files in VS Code before accepting the checkpoint commit.
+The student manually scanned the Part 1 changes in VS Code and accepted the checkpoint commit.
 
 Automated checks passed:
 
