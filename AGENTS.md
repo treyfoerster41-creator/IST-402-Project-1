@@ -1,4 +1,4 @@
-# Project instructions — Expedia Lite
+# Project instructions - Expedia Lite
 
 ## Part 1 goal
 
@@ -24,4 +24,3 @@ Build only the CSV city-search scope: a Vue frontend calls a FastAPI backend, wh
 - In a browser, check `Boston` (four results) and `Miami` (no results). Record expected and observed behavior in `evidence/evidence-log.md`.
 - Keep README, `docs/design.md`, prompts, and `handoffs/current.md` consistent with what actually works.
 - Part 1 ends with a reviewed Git commit pushed to GitHub. Part 2 work will use a feature branch and preserve this checkpoint.
-

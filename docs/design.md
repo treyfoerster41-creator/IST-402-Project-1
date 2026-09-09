@@ -27,10 +27,9 @@ flowchart LR
 
 - A city search is exact after trimming whitespace and ignores capitalization. `Boston` and `boston` return the same four records.
 - A blank city and a city with no matches are intentionally different: blank input receives guidance; `Miami` completes a valid search and displays a no-results message.
-- `nights` is `check_out − check_in`; `stay_price_usd` is nights × the joined hotel nightly rate. Neither is stored in a second CSV column.
+- `nights` is `check_out - check_in`; `stay_price_usd` is nights x the joined hotel nightly rate. Neither is stored in a second CSV column.
 - The table keeps labels plain and explicit so the joined values can be inspected easily.
 
 ## Part 2 boundary
 
 Part 2 will seed SQLite from all four supplied CSV files one time, then add frontend booking creation, history, cancellation (status update), and test-booking deletion through FastAPI. It must preserve changes across restarts without duplicating seed rows.
-

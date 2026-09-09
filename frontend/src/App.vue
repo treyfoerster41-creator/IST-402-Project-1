@@ -33,7 +33,7 @@ async function search() {
 
     stays.value = result.stays;
     if (result.stays.length === 0) {
-      message.value = `No offered stays match “${query}.” Try another city.`;
+      message.value = `No offered stays match "${query}." Try another city.`;
       messageType.value = 'empty';
     } else {
       message.value = `${result.stays.length} offered stay${result.stays.length === 1 ? '' : 's'} found in ${result.stays[0].city}.`;
@@ -52,7 +52,7 @@ async function search() {
   <main class="page-shell">
     <header class="site-header">
       <p class="brand">expedia<span>lite</span></p>
-      <p class="part-label">PART 1 · CSV CITY SEARCH</p>
+      <p class="part-label">PART 1 - CSV CITY SEARCH</p>
     </header>
 
     <section class="hero">
@@ -64,7 +64,7 @@ async function search() {
         <label for="city">City</label>
         <div class="search-controls">
           <input id="city" v-model="city" type="search" placeholder="e.g., Boston" autocomplete="off" />
-          <button type="submit" :disabled="loading">{{ loading ? 'Searching…' : 'Search' }}</button>
+          <button type="submit" :disabled="loading">{{ loading ? 'Searching...' : 'Search' }}</button>
         </div>
       </form>
       <p class="hint">Try: Boston, New York, Philadelphia, Washington, State College, or Miami.</p>

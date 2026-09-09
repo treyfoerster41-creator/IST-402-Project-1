@@ -1,4 +1,4 @@
-# 001 — Part 1 CSV search scope
+# 001 - Part 1 CSV search scope
 
 ## Course requirements applied
 
@@ -12,4 +12,3 @@
 - Application name: Expedia Lite.
 - Part 1 contains search only; booking/history/SQLite CRUD are reserved for Part 2.
 - The backend reads CSVs with `utf-8-sig` and compares city names case-insensitively.
-

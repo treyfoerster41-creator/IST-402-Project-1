@@ -1,4 +1,4 @@
-# Expedia Lite — CSV city search
+# Expedia Lite - CSV city search
 
 Expedia Lite is a local classroom travel application. Part 1 implements city search over the instructor-supplied hotel and trip CSV files. It uses Vue for the frontend and FastAPI for the Python backend.
 
