@@ -1,7 +1,7 @@
 # Current handoff
 
 **Last updated:** September 9, 2026  
-**Checkpoint:** Part 1 implementation checkpoint `dc413fd` created after student VS Code review; final documentation update and approved remote replacement are next.
+**Checkpoint:** Part 1 implementation and final report are reviewed, committed, and pushed to GitHub `main`.
 
 ## What exists
 
@@ -23,8 +23,9 @@
 
 - The exact Part 1 implementation checkpoint is `dc413fd`.
 - The previous incorrect React/Express project is preserved at `archive/react-express-prototype`.
-- Force-push the approved rebuilt `main` with this final documentation update, then upload `report.md` to Canvas.
+- GitHub `main` was rebuilt and force-pushed safely with lease at final documentation commit `57cb3cd`.
+- Upload `report.md` to Canvas. Optional: add repository-stored browser screenshots to the report/evidence if the instructor expects image evidence in addition to the recorded browser checks.
 
 ## Next concrete task
 
-Force-push the rebuilt, reviewed Part 1 `main` to GitHub. Then upload `report.md` to the Part 1 Canvas submission and retain `dc413fd` as the implementation checkpoint identifier.
+Upload `report.md` to the Part 1 Canvas submission and retain `dc413fd` as the implementation checkpoint identifier. Part 2 will start from the now-correct `main` branch and add SQLite CRUD on a feature branch.
