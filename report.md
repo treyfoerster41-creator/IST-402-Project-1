@@ -6,7 +6,7 @@ Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfo
 
 Preserved Part 1 implementation checkpoint: [dc413fd](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/dc413fdca0d0ba11ea1fbfe8405c57541004a7e6)
 
-Part 2 was developed on feature/booking-history. The final main checkpoint will be recorded after student review, merge, combined-app check, and push.
+Part 2 was developed on feature/booking-history at 2b1809a and merged into main at [deebfc58](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/deebfc58c3b9fda30fd5e66c1f42ca74d8f55119) after student review.
 
 ## Implementation
 
@@ -34,7 +34,7 @@ Browser checks against the local Vue and FastAPI servers:
 | Delete test booking | Selected test booking is removed | B007 was deleted through the frontend. |
 | Restart after delete | Deleted record is not restored by seeding | U006 displayed clear empty-history message after a new FastAPI start. |
 
-The student manually scanned the changed Part 2 files in VS Code and accepted the work before the feature commit and merge. The complete dated record, decisions, browser checks, and AI role disclosure are in [the evidence log](evidence/evidence-log.md).
+The student manually scanned the changed Part 2 files in VS Code and accepted the work before the feature commit and merge. The final combined-main checks and GitHub push are recorded in the evidence log.
 
 ## Project context
 
@@ -46,4 +46,4 @@ The student manually scanned the changed Part 2 files in VS Code and accepted th
 - [Current handoff](handoffs/current.md)
 - [Supplied data guide](docs/sample-data-guide.md)
 
-The handoff records the fresh-session continuation used before Part 2 implementation. After the final main checkpoint is recorded, this report is the single file to upload to Part 2 Canvas.
+The handoff records the fresh-session continuation used before Part 2 implementation. This report is the single file to upload to Part 2 Canvas after the final main push.
