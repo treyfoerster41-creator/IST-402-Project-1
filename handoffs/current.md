@@ -1,31 +1,34 @@
 # Current handoff
 
-**Last updated:** September 9, 2026  
-**Checkpoint:** Part 1 implementation and final report are reviewed, committed, and pushed to GitHub `main`.
+Last updated: September 15, 2026
+
+Branch: feature/booking-history
+
+State: Part 2 implementation, automated/browser verification, and manual VS Code review are complete; commit, merge, final main check, and push remain.
 
 ## What exists
 
-- Instructor-supplied fictional CSV files are copied to `backend/data/`; the supplied data guide and relationship diagram are in `docs/`.
-- FastAPI route and CSV join logic are in `backend/app/`, with three backend behavior tests in `backend/tests/`.
-- Vue city-search interface and labeled results table are in `frontend/`.
-- README, project instructions, design note, prompt record, evidence log, and `report.md` describe the corrected assignment scope.
-- SQLite capability was checked with the selected Python interpreter and passed; `backend/data/sqlite-capability-check.db` is ignored.
+- Vue provides city search, selectable offered stays, a simulated booking form, traveler-selectable booking history, cancellation, deletion, and empty states.
+- FastAPI routes use SQLite for search and all booking CRUD after a one-time seed from the four supplied CSV files.
+- backend/app/database.py creates schema and a csv_seed_v1 marker. The marker prevents restart from duplicating or restoring supplied booking rows.
+- Backend tests cover search, seeded and empty history, create, cancellation, deletion, and persistence after reinitialization.
+- The local database is backend/data/expedia_lite.db and is intentionally ignored by Git.
 
 ## What has been checked
 
-- Python 3.14.7 can import `sqlite3` version 3.50.4.
-- A local SQLite file retained `sqlite-ok` after a close and reopen.
-- The supplied data guide states that Boston must return `T001`, `T002`, `T009`, and `T010`; Miami must return no rows.
-- FastAPI backend tests passed all three checks; Vue production build passed.
-- Browser verification passed: Boston showed four labeled joined records; Miami showed the no-results message.
+- Seven backend tests passed.
+- The Vue production build passed.
+- Browser checks passed: Boston returned four stays; selected T001 was booked as B007 for U006; B007 appeared in history; cancellation retained it; refresh and FastAPI restart retained the cancelled record; deletion removed it; a later restart left U006 history empty.
+- The Part 1 checkpoint remains dc413fd.
+- The incompatible earlier feature branch was preserved at archive/legacy-booking-history; feature/booking-history was rebased to correct Part 1 main before Part 2 work.
 
 ## What remains
 
-- The exact Part 1 implementation checkpoint is `dc413fd`.
-- The previous incorrect React/Express project is preserved at `archive/react-express-prototype`.
-- GitHub `main` was rebuilt and force-pushed safely with lease at final documentation commit `57cb3cd`.
-- Upload `report.md` to Canvas. Optional: add repository-stored browser screenshots to the report/evidence if the instructor expects image evidence in addition to the recorded browser checks.
+1. Commit reviewed work on feature/booking-history.
+2. Merge the feature branch into main, verify combined application, and push main.
+3. Update this handoff, evidence log, and report.md with final commit information.
+4. Upload updated report.md to Part 2 Canvas submission.
 
 ## Next concrete task
 
-Upload `report.md` to the Part 1 Canvas submission and retain `dc413fd` as the implementation checkpoint identifier. Part 2 will start from the now-correct `main` branch and add SQLite CRUD on a feature branch.
+Commit the accepted feature branch, merge it into main, run the combined checks, push final main, and upload report.md to Canvas.

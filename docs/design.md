@@ -1,35 +1,29 @@
-# Expedia Lite Part 1 design
+# Expedia Lite Part 2 design
 
 ## Responsibilities
 
 | Layer | Responsibility |
 | --- | --- |
-| Vue interface | Collects the city query, requests search results, and renders input, loading, match, and no-match states. |
-| FastAPI logic | Validates a nonblank city, reads the CSV records, joins trips to hotels through `hotel_id`, compares cities without regard to case, and calculates nights and stay price. |
-| CSV data | `hotels.csv` supplies hotel identity, city, state, and nightly rate. `trips.csv` supplies fixed offered-stay dates and refers to its hotel by `hotel_id`. |
-| Persistence | Part 1 reads the supplied CSVs only. Part 2 will seed SQLite once, then persist CRUD changes there. |
+| Vue interface | Collects city and demo-traveler selections, renders search results, lets the user select a stay, and displays booking/history outcomes and safe errors. |
+| FastAPI logic | Validates requests, provides search and history data, creates unique booking IDs, updates cancellation status, and deletes a selected test booking. |
+| SQLite persistence | Holds hotels, trips, users, bookings, and a one-time seed marker. It is the source for all application reads and writes after seeding. |
+| CSV source data | Supplies initial fictional hotels, trips, users, and bookings only. Files are read with utf-8-sig during the first SQLite seed and are not changed by the application. |
 
-## Search flow
+## Connected flows
 
-```mermaid
-flowchart LR
-  A[Vue: city input] --> B{City entered?}
-  B -- No --> C[Vue: input guidance]
-  B -- Yes --> D[GET /api/stays?city=...]
-  D --> E[FastAPI: read hotels.csv and trips.csv]
-  E --> F[Join records by hotel_id]
-  F --> G{Matching city?}
-  G -- Yes --> H[Vue: labeled results table]
-  G -- No --> I[Vue: no-results message]
-```
+Search: Vue city input -> GET API stays -> FastAPI SQLite hotel/trip join -> labeled results or no-results message -> selected stay and demo traveler -> POST API bookings -> FastAPI creates B### booking -> SQLite saves a confirmed booking -> Vue history.
 
-## Part 1 decisions
+History: Vue traveler selection -> GET API bookings -> FastAPI SQLite booking join -> labeled history or empty-history message. Cancel sends PATCH to update the row to cancelled; delete sends DELETE to remove the selected test booking.
 
-- A city search is exact after trimming whitespace and ignores capitalization. `Boston` and `boston` return the same four records.
-- A blank city and a city with no matches are intentionally different: blank input receives guidance; `Miami` completes a valid search and displays a no-results message.
-- `nights` is `check_out - check_in`; `stay_price_usd` is nights x the joined hotel nightly rate. Neither is stored in a second CSV column.
-- The table keeps labels plain and explicit so the joined values can be inspected easily.
+## Decisions and states
 
-## Part 2 boundary
+- City matching ignores capitalization and surrounding whitespace. A blank city receives input guidance; a valid city with no matching stay receives a no-results message.
+- The user chooses from supplied demo travelers. This is not login or authentication.
+- The backend assigns new B### IDs. The frontend does not invent booking IDs, totals, or status.
+- Cancel updates status to cancelled and keeps a history row. Delete removes the chosen test booking row. These are intentionally distinct actions.
+- A one-time csv_seed_v1 marker prevents startup from restoring deleted starter records, overwriting cancellations, or duplicating rows.
+- SQLite persists across browser refreshes and server restarts. The ignored local database can be removed manually only to restart with fresh supplied data.
 
-Part 2 will seed SQLite from all four supplied CSV files one time, then add frontend booking creation, history, cancellation (status update), and test-booking deletion through FastAPI. It must preserve changes across restarts without duplicating seed rows.
+## Part 1 continuity
+
+Part 1 city search remains available, and its implementation checkpoint is dc413fd. Part 2 replaces Part 1 CSV-at-request-time reads with SQLite-backed application queries after the one-time seed.
