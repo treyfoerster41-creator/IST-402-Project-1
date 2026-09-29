@@ -10,8 +10,8 @@ body { min-width: 320px; min-height: 100vh; margin: 0; }
 .brand span { color: #db674b; }
 .part-label, .eyebrow { color: #a34a3a; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .11em; margin: 0; }
 .hero { padding: 68px max(24px, calc((100vw - 1020px) / 2)) 72px; background: radial-gradient(circle at 10% 70%, rgba(238, 199, 137, .5), transparent 28%), radial-gradient(circle at 92% 4%, rgba(151, 195, 170, .55), transparent 27%), #e8efe2; }
-.hero h1, h2 { color: #173a31; font-family: Fraunces, Georgia, serif; font-weight: 500; letter-spacing: -.04em; }
-.hero h1 { max-width: 680px; font-size: clamp(2.8rem, 6vw, 5.1rem); line-height: .95; margin: 14px 0 20px; }
+h2 { color: #173a31; font-family: Fraunces, Georgia, serif; font-weight: 500; letter-spacing: -.04em; }
+.hero h2 { max-width: 680px; font-size: clamp(2.8rem, 6vw, 5.1rem); line-height: .95; margin: 14px 0 20px; }
 h2 { font-size: 2rem; margin: 8px 0 0; }
 .intro { max-width: 700px; color: #4e675e; font-size: 1.08rem; line-height: 1.55; margin: 0 0 30px; }
 .search-form { max-width: 690px; }

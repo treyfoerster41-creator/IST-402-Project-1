@@ -9,7 +9,34 @@
 | 2026-09-15 | Automated verification | Ran backend unit tests and Vue production build. | Backend behavior/persistence checks and Vue production build succeed. | Passed: 7 backend tests and the Vue production build completed successfully. |
 | 2026-09-15 | Browser CRUD and persistence | Searched Boston, selected T001, booked it for U006, loaded history, cancelled B007, refreshed, restarted FastAPI, deleted B007, and restarted FastAPI again. | Search returns 4 Boston stays; create/read/cancel/delete use frontend; changes survive refresh/restart; deleted record stays absent. | Passed: B007 was confirmed, appeared for U006, changed to cancelled and persisted, then was deleted. After final restart, U006 showed empty history. |
 | 2026-09-15 | Manual review and final integration | Student manually reviewed the changed Part 2 files in VS Code and accepted the work. Part 2 was committed as 2b1809a and merged into main as deebfc58. | Commit reviewed work, merge to main, then check combined app. | Passed: combined main ran all 7 backend tests, Vue production build, and browser Boston search. Final main is pushed to GitHub. |
+| 2026-09-24 | Part 2 demonstration recording | Captured one full-display walkthrough with Boston search, create/read/cancel B008 for U001, create/delete disposable B009, refresh, restart both services, and reload U001 history. | Demonstrate frontend CRUD and persistence through refresh and service restart in one video under 3 minutes. | Passed: B008 remained cancelled in SQLite-backed history and B009 stayed deleted. Full-display WebM verified at 2:45 and 36 MB. No API key or `.env` content was shown. |
+
+## Public API activity - September 23, 2026
+
+The [activity instructions](../prompts/003-public-api-activity.md) led to backend
+configuration/health integration, a Geoapify controller, fixed/entered-ZIP routes,
+and a separate Vue input/results table. The SQLite booking flow remains available.
+
+[Detailed checks and screenshots](zip-lookup/verification.md) record real
+backend/frontend 16802 requests, entered 02108, Firefox compatibility, mocked
+failures, 28 passing tests, a passing build, safe key handling and the SQLite
+connection-cleanup correction. Work is uncommitted on codex/geoapify-zip-activity;
+student review, class demonstration and Canvas upload are not claimed complete.
 
 ## Tool disclosure
 
 OpenAI Codex (GPT-5) assisted with implementation, documentation, automated checks, and local browser verification. The student performs the required VS Code review before accepting changes and remains responsible for Git and Canvas submission.
+
+## Assignment 2, Part 1 - September 28, 2026
+
+The [selected assignment instruction](../prompts/004-assignment2-part1-hotel-discovery.md) led to the [research and early mockup](../docs/assignment-2-part-1-research.md), the exact-ZIP/circle-filter backend route, and synchronized Vue list/Leaflet map. [Expected versus observed checks](assignment-2-part-1-verification.md) include the dated live 16802 and 02108 lookups, keyboard-relevant controls, safe failures, and prior-flow regression checks.
+
+Dependency loop: inspected `frontend/package.json`, lockfile, and `node_modules` and found no Leaflet. Explained `leaflet@1.9.4` installation; the student explicitly approved it. An initial sandboxed npm request could not resolve registry.npmjs.org, so the authorized install was retried with network permission. `npm ls` confirmed the package, and the Vue build passed.
+
+Failed/revised approach: the first browser check found a populated hotel list but a blank Leaflet map. Browser console evidence identified `getBounds()` before map initialization. Set the map view before fitting the circle; after reload, tiles, 21 markers, center/circle, attribution, and bidirectional selection worked. No provider key was included in frontend configuration.
+
+Tool/model disclosure for this work: OpenAI Codex (GPT-5) assisted with research, design sketch, implementation, mocked tests, and local browser checks. Web research used Geoapify, Leaflet, OSM tile-policy, and Expedia-owned Egencia documentation linked from the research note. The student has now recorded a screencast, but the instructor-accessible link, student VS Code review, commit/push, and Canvas submission remain outstanding.
+
+## Assignment 2, Part 1 - demo recording, September 29, 2026
+
+The student selected a shorter replacement MOV and asked that it be used without agent review. Per the student's description, it shows unresolved ZIPs 11111 and 00000, Boston ZIP 02108 with a selected hotel and map zoom, and State College ZIP 16802 with a selected hotel and map interaction. A previous, longer version was reviewed and superseded; it briefly showed a browser autofill suggestion. The latest version is in a temporary local folder and has no instructor-accessible link in `report.md` yet. Before sharing, the student should confirm the replacement recording contains no API key, `.env` content, or private browser information.

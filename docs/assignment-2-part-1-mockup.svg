@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" role="img" aria-labelledby="title desc">
+  <title id="title">Early mockup for ZIP hotel discovery</title>
+  <desc id="desc">A ZIP input and status area above a hotel list beside a map. One hotel is highlighted in both. Notes describe loading, invalid, unresolved, empty, and failure states.</desc>
+  <rect width="1100" height="700" fill="#f5f4ef"/>
+  <text x="40" y="52" fill="#173a31" font-family="Arial" font-size="30" font-weight="bold">Find hotels near a ZIP code</text>
+  <text x="40" y="82" fill="#526b60" font-family="Arial" font-size="16">Live places within 5 km of the resolved U.S. postcode point - not bookable room inventory</text>
+  <text x="40" y="122" fill="#173a31" font-family="Arial" font-size="15" font-weight="bold">U.S. ZIP code</text>
+  <rect x="40" y="135" width="215" height="46" fill="#fff" stroke="#799286"/>
+  <text x="56" y="164" fill="#173a31" font-family="Arial" font-size="18">16802</text>
+  <rect x="268" y="135" width="175" height="46" fill="#1d5848"/>
+  <text x="291" y="164" fill="#fff" font-family="Arial" font-size="16" font-weight="bold">Find nearby hotels</text>
+  <rect x="40" y="196" width="1020" height="48" fill="#e7f0e7"/>
+  <text x="58" y="225" fill="#24513f" font-family="Arial" font-size="16">Results: ZIP 16802, State College - center 40.80, -77.86 - radius 5 km - up to 50 places</text>
+  <rect x="40" y="266" width="470" height="302" fill="#fff" stroke="#b9cbb3"/>
+  <text x="59" y="296" fill="#173a31" font-family="Arial" font-size="22" font-weight="bold">Nearby hotels</text>
+  <rect x="57" y="313" width="436" height="69" fill="#e7f0e7" stroke="#1d5848" stroke-width="2"/>
+  <text x="73" y="341" fill="#173a31" font-family="Arial" font-size="17" font-weight="bold">Selected hotel name</text>
+  <text x="73" y="365" fill="#526b60" font-family="Arial" font-size="14">Returned address (if available)  |  View on map</text>
+  <rect x="57" y="394" width="436" height="69" fill="#fff" stroke="#d8ddd4"/>
+  <text x="73" y="422" fill="#173a31" font-family="Arial" font-size="17">Another returned hotel</text>
+  <text x="73" y="446" fill="#526b60" font-family="Arial" font-size="14">Address not provided  |  View on map</text>
+  <rect x="57" y="475" width="436" height="69" fill="#fff" stroke="#d8ddd4"/>
+  <text x="73" y="503" fill="#173a31" font-family="Arial" font-size="17">Hotel name not provided</text>
+  <text x="73" y="527" fill="#526b60" font-family="Arial" font-size="14">Returned locality (if available)  |  View on map</text>
+  <rect x="530" y="266" width="530" height="302" fill="#dce6d8" stroke="#b9cbb3"/>
+  <path d="M530 334h530 M530 424h530 M620 266v302 M760 266v302 M905 266v302" stroke="#c2d4c5" stroke-width="9"/>
+  <circle cx="793" cy="411" r="84" fill="none" stroke="#3c8370" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="793" cy="411" r="8" fill="#a34a3a"/>
+  <circle cx="774" cy="386" r="15" fill="#1d5848" stroke="#fff" stroke-width="3"/>
+  <text x="768" y="392" fill="#fff" font-family="Arial" font-size="16" font-weight="bold">1</text>
+  <circle cx="834" cy="448" r="13" fill="#617e6c" stroke="#fff" stroke-width="3"/>
+  <circle cx="741" cy="466" r="13" fill="#617e6c" stroke="#fff" stroke-width="3"/>
+  <rect x="821" y="279" width="221" height="34" fill="#fff" opacity=".95"/>
+  <text x="831" y="302" fill="#173a31" font-family="Arial" font-size="14">Map with visible attribution</text>
+  <text x="40" y="609" fill="#173a31" font-family="Arial" font-size="17" font-weight="bold">State messages</text>
+  <text x="40" y="636" fill="#526b60" font-family="Arial" font-size="15">Loading / invalid ZIP / unresolved ZIP / no nearby hotels / provider failure</text>
+  <text x="40" y="663" fill="#526b60" font-family="Arial" font-size="15">List or marker selection highlights the same place. No prices, ratings, availability, or booking action.</text>
+</svg>

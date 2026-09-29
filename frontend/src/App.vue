@@ -1,5 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
+import ZipLookup from './components/ZipLookup.vue';
+import HotelDiscovery from './components/HotelDiscovery.vue';
 
 const city = ref('Boston');
 const stays = ref([]);
@@ -138,12 +140,15 @@ onMounted(async () => {
   <main class="page-shell">
     <header class="site-header">
       <p class="brand">expedia<span>lite</span></p>
-      <p class="part-label">PART 2 - SQLITE CRUD</p>
+      <p class="part-label">TRAVEL + LIVE HOTEL DISCOVERY</p>
     </header>
+
+    <HotelDiscovery />
+    <ZipLookup />
 
     <section class="hero">
       <p class="eyebrow">LOCAL CLASSROOM PROTOTYPE</p>
-      <h1>Find, book, and revisit a hotel stay.</h1>
+      <h2>Find, book, and revisit a hotel stay.</h2>
       <p class="intro">Search fictional supplied stays by city, make a simulated reservation, then manage its saved history. No live inventory, payments, or accounts are used.</p>
 
       <form class="search-form" @submit.prevent="search">

@@ -1,9 +1,12 @@
-"""FastAPI routes for Expedia Lite Part 2 SQLite CRUD."""
+"""FastAPI routes for SQLite bookings and the public ZIP lookup activity."""
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from .config import geoapify_configuration_status
+from .geoapify import ZipLookupError, lookup_zip_location
+from .hotel_discovery import search_nearby_hotels
 from .database import (
     cancel_booking,
     create_booking,
@@ -35,7 +38,32 @@ def startup() -> None:
 
 @app.get("/api/health")
 def health() -> dict[str, str]:
-    return {"status": "ok"}
+    return {"status": "ok", "geoapify": geoapify_configuration_status()}
+
+
+def zip_location_response(zip_code: str) -> dict[str, object]:
+    try:
+        return lookup_zip_location(zip_code)
+    except ZipLookupError as error:
+        raise HTTPException(status_code=error.status_code, detail=error.message) from None
+
+
+@app.get("/api/demo/zip-location")
+def demo_zip_location() -> dict[str, object]:
+    return zip_location_response("16802")
+
+
+@app.get("/api/zip-location")
+def get_zip_location(zip_code: str = Query("", description="Five-digit U.S. ZIP code")) -> dict[str, object]:
+    return zip_location_response(zip_code)
+
+
+@app.get("/api/hotels/nearby")
+def get_nearby_hotels(zip_code: str = Query("", description="Five-digit U.S. ZIP code")) -> dict[str, object]:
+    try:
+        return search_nearby_hotels(zip_code)
+    except ZipLookupError as error:
+        raise HTTPException(status_code=error.status_code, detail=error.message) from None
 
 
 @app.get("/api/stays")

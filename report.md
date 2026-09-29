@@ -1,49 +1,35 @@
-# Expedia Lite - Part 2
+# Expedia Lite - Assignment 2, Part 1 report
 
-## Repository and checkpoints
+## Project access and setup
 
-Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1)
+Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1). Assessed Part 1 commit: **pending student review, commit, and push**. Do not submit this draft until that identifier and the demo-video link below are filled in and accessible to the instructor.
 
-Preserved Part 1 implementation checkpoint: [dc413fd](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/dc413fdca0d0ba11ea1fbfe8405c57541004a7e6)
+The project continues the existing Vue, FastAPI, and SQLite travel app. From the repository root, create and activate a Python virtual environment, install `backend/requirements.txt`, and run `uvicorn backend.app.main:app --port 8000`. In another terminal, run `npm ci --prefix frontend` and `npm run dev --prefix frontend`, then open `http://localhost:5173`. For live results, put a Geoapify key in the ignored project-root `.env` as `GEOAPIFY_API_KEY=...`, then restart FastAPI. Use `.env.example` as a key-free template. Never upload `.env` or put its contents in frontend configuration. The map uses public OpenStreetMap tiles with visible attribution and no client key. Full instructions are in [README.md](README.md).
 
-Part 2 was developed on feature/booking-history at 2b1809a and merged into main at [deebfc58](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/deebfc58c3b9fda30fd5e66c1f42ca74d8f55119) after student review.
+## Research and early mockup
 
-## Implementation
+The [dated research note](docs/assignment-2-part-1-research.md) links Geoapify Geocoding and Places documentation, Leaflet, OpenStreetMap's tile policy, and an Expedia-owned hotel-list/map reference. The reference's spatial comparison pattern was useful; its commercial rates and booking controls were inappropriate for Geoapify place data. Geoapify supplies hotel places and coordinates but not confirmed room availability, prices, or ratings. Leaflet needs a separate tile source and does not retrieve hotels.
 
-Expedia Lite now provides connected search, simulated booking, and booking-history flows. The Vue frontend searches fictional offered stays by city, lets the user select a stay and demo traveler, creates a simulated booking, and displays saved history. History includes cancellation that retains a row and deletion of a test booking.
+The [early mockup](docs/assignment-2-part-1-mockup.svg), prepared before implementation on September 28, places a five-digit ZIP form and status area above a side-by-side hotel list and map. It sketches one highlighted place in both views and notes invalid, unresolved, empty, loading, and failure states. The implementation kept that design and added numbered, keyboard-usable map markers, a visible 5 km circle, a selected-place summary, responsive stacking, and an explicit 50-result cap. The earlier ZIP-only demonstration and fictional booking section remain below the new discovery screen instead of being removed.
 
-The FastAPI backend owns validation, booking creation, unique B### ID generation, cancellation, deletion, and API responses. The SQLite module creates the schema and seeds hotels, trips, users, and bookings from supplied CSV files only once. A seed marker prevents future starts from duplicating records, restoring a deleted booking, or overwriting a cancellation. All application reads and writes after the first seed use SQLite.
+## Part 1 implementation and MVC responsibilities
 
-Runtime state is stored in the local Git-ignored backend/data/expedia_lite.db file. Changes persist through browser refresh and backend restart. The application uses fictional classroom records only; it does not collect payment data, connect to live Expedia inventory, or implement accounts.
+Vue owns ZIP text entry, state messages, list/map rendering, and one selected provider place ID. A list-button selection highlights its Leaflet marker; a marker click highlights and scrolls the corresponding list item. FastAPI owns exact five-digit U.S. postcode validation, backend-only Geoapify requests, data validation, and safe errors. The existing ZIP geocoding controller first requires the returned postcode to match the requested ZIP and country to be U.S.; only then does the new hotel controller call Geoapify Places for `accommodation.hotel` within a `circle:lon,lat,5000` centered on that returned point. Neither browser geolocation nor the whole ZIP boundary is used.
 
-## Verification
+`GET /api/hotels/nearby?zip_code=16802` returns the validated ZIP center, 5 km radius, result limit, and up to 50 usable provider places. Each exposed hotel has a provider place ID, optional name/address, and valid coordinates. A missing name/address is labeled "not provided" in Vue. Unusable geometry/IDs are omitted; a wholly unusable nonempty provider response is an error, not an empty search. The UI distinguishes loading, results, invalid input, unresolved ZIP, zero returned hotels, and failed service requests. A 50-place page may not include every hotel in a dense area; coverage changes over time. No live place is offered as a bookable room or inserted into the fictional SQLite booking flow. Persistent shortlist actions are **Part 2 only**.
 
-Automated checks passed:
+## Screen-recorded demonstration
 
-- Seven FastAPI backend tests cover city search, seeded and empty history, create, cancel, delete, and no-reseed persistence.
-- The Vue production build completed successfully.
+The student supplied a shorter replacement recording for this submission. Per the student's description, it shows unresolved ZIPs `11111` and `00000`, a Boston search for `02108` with a selected hotel and map zoom, and a State College search for `16802` with a selected hotel and map interaction. Before sharing, confirm that it contains no API key, `.env` content, or private browser information. Add an instructor-accessible link here; the source clip is in a temporary local folder and is not itself an instructor-accessible link. The separate dated live checks below document observed 16802 and 02108 responses.
 
-Browser checks against the local Vue and FastAPI servers:
+## Verification and limitations
 
-| Action | Expected result | Observed result |
-| --- | --- | --- |
-| Search Boston | Four offered stays including T001, T002, T009, and T010 | Four labeled offers appeared. |
-| Create booking | Selected T001 and U006 produce unique confirmed booking | B007 was created and appeared in U006 history. |
-| Cancel booking | Status changes while row remains in history | B007 changed to cancelled and remained visible. |
-| Refresh and restart | Saved cancellation remains without duplicate starter rows | B007 remained cancelled after browser refresh and FastAPI restart. |
-| Delete test booking | Selected test booking is removed | B007 was deleted through the frontend. |
-| Restart after delete | Deleted record is not restored by seeding | U006 displayed clear empty-history message after a new FastAPI start. |
+The [detailed expected-versus-observed record](evidence/assignment-2-part-1-verification.md) dates live checks to September 28, 2026. A direct backend 16802 request returned HTTP 200, State College as the exact ZIP center, and 21 hotel places on that date. In the browser, the same search showed a loading state followed by 21 list items and 21 map markers; selection worked in both directions, with visible tiles, radius, and attribution. `02108` retained its leading zero and returned a Boston-centered result at the 50-place cap. `1680` showed an invalid-input message; `00000` showed an unresolved-ZIP message instead of hotel results. The earlier fixed ZIP table and fictional Boston city search still worked.
 
-The student manually scanned the changed Part 2 files in VS Code and accepted the work before the feature commit and merge. The final combined-main checks and GitHub push are recorded in the evidence log.
+All **38 backend tests** passed, including synthetic/mocked Places empty, rate-limit, timeout, malformed response, duplicate-ID, missing-field, and no-fallback cases; the Vue production build passed. Mocks do not prove live success, so the real observations are recorded separately. An empty or failed Places response was not captured in the browser; the backend handling was tested with mocks and the frontend state logic was reviewed. Results are limited to 50 and depend on Geoapify coverage and tile-network availability.
 
-## Project context
+The first browser pass found a blank map despite a populated list: Leaflet circle bounds were calculated before a map view existed. Initializing the map at the returned ZIP point before fitting the circle fixed it; the browser then showed tiles, markers, circle, and attribution. This failed/revised approach is recorded in the [evidence log](evidence/evidence-log.md).
 
-- [Setup and run instructions](README.md)
-- [Project-specific instructions](AGENTS.md)
-- [Part 2 design note](docs/design.md)
-- [Part 1 prompt record](prompts/001-part1-csv-search.md)
-- [Part 2 prompt record](prompts/002-part2-sqlite-crud.md)
-- [Current handoff](handoffs/current.md)
-- [Supplied data guide](docs/sample-data-guide.md)
+## AI disclosure and prompt trail
 
-The handoff records the fresh-session continuation used before Part 2 implementation. This report is the single file to upload to Part 2 Canvas after the final main push.
+OpenAI Codex (GPT-5) assisted with research, the SVG sketch, backend/frontend implementation, mocked tests, browser verification, and this report. The student supplied the assignment and approved installation of `leaflet@1.9.4` after the existing environment was checked. The [selected prompt excerpt](prompts/004-assignment2-part1-hotel-discovery.md) links the main instruction to the research, code, and verification decisions; the [evidence log](evidence/evidence-log.md) records the dependency retry and map-initialization correction. Student VS Code review, commit/push, demo-video link, and Canvas upload must be confirmed before this report is final.

@@ -233,6 +233,6 @@ def cancel_booking(booking_id: str) -> dict[str, object] | None:
 
 def delete_booking(booking_id: str) -> bool:
     initialize_database()
-    with connection() as db:
+    with database_session() as db:
         cursor = db.execute("DELETE FROM bookings WHERE booking_id = ?", (booking_id,))
     return cursor.rowcount > 0

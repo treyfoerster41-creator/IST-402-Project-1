@@ -6,7 +6,7 @@
 | --- | --- |
 | Vue interface | Collects city and demo-traveler selections, renders search results, lets the user select a stay, and displays booking/history outcomes and safe errors. |
 | FastAPI logic | Validates requests, provides search and history data, creates unique booking IDs, updates cancellation status, and deletes a selected test booking. |
-| SQLite persistence | Holds hotels, trips, users, bookings, and a one-time seed marker. It is the source for all application reads and writes after seeding. |
+| SQLite persistence | Holds hotels, trips, users, bookings, and a one-time seed marker. It is the source for all booking/search reads and writes after seeding. |
 | CSV source data | Supplies initial fictional hotels, trips, users, and bookings only. Files are read with utf-8-sig during the first SQLite seed and are not changed by the application. |
 
 ## Connected flows
@@ -27,3 +27,9 @@ History: Vue traveler selection -> GET API bookings -> FastAPI SQLite booking jo
 ## Part 1 continuity
 
 Part 1 city search remains available, and its implementation checkpoint is dc413fd. Part 2 replaces Part 1 CSV-at-request-time reads with SQLite-backed application queries after the one-time seed.
+
+## Public API activity extension
+
+The separate [ZIP lookup design](zip-lookup-design.md) documents the September
+activity, early panel sketch, sources, API boundary, and error states. Geographic
+lookup uses Geoapify through FastAPI without modifying the SQLite booking flow.
