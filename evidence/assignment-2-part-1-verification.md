@@ -24,5 +24,5 @@ Observed on 2026-09-28 in the local Vue app (`127.0.0.1:5173`) and FastAPI (`127
 ## Limits and remaining submission steps
 
 - Places coverage and fields vary. The app requests at most 50 features and does not paginate; dense ZIPs can have additional places. A returned feature without a usable point geometry or provider ID is omitted; if all returned features are unusable, this is a service-data error, not a successful empty result.
-- Empty Places responses, provider failure, timeout, and rate limit are covered by mocked backend tests. Invalid and unresolved cases were also checked in the live browser. A dedicated browser capture of an empty/failure simulation has not yet been recorded.
-- Student VS Code review, demo video link, assessed commit/push, and Canvas upload must be recorded only after they occur.
+- Empty Places responses, provider failure, timeout, and rate limit are covered by mocked backend tests. Invalid and unresolved cases were also checked in the live browser; a browser demonstration of a simulated empty/failure response was not recorded.
+- The student confirms manually reviewing changed files in VS Code and rechecking the app in the browser after implementation changes. The student also confirmed that the Kaltura video loads in a private window. The demo link is in `report.md`, and the Assignment 2 Part 1 branch has been pushed. Canvas upload remains the student's step.
