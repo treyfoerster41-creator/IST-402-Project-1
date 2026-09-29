@@ -2,7 +2,7 @@
 
 ## Project access and setup
 
-Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1). Assessed Part 1 commit: **pending student review, commit, and push**. Do not submit this draft until that identifier and the demo-video link below are filled in and accessible to the instructor.
+Repository: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1). Assessed Part 1 implementation commit: `571fa23` on branch `codex/assignment2-part1-hotel-discovery` (committed locally; not pushed). Student acceptance review and an instructor-accessible demo-video link are still pending. Do not submit this draft until the branch is pushed and the demo link below is accessible to the instructor.
 
 The project continues the existing Vue, FastAPI, and SQLite travel app. From the repository root, create and activate a Python virtual environment, install `backend/requirements.txt`, and run `uvicorn backend.app.main:app --port 8000`. In another terminal, run `npm ci --prefix frontend` and `npm run dev --prefix frontend`, then open `http://localhost:5173`. For live results, put a Geoapify key in the ignored project-root `.env` as `GEOAPIFY_API_KEY=...`, then restart FastAPI. Use `.env.example` as a key-free template. Never upload `.env` or put its contents in frontend configuration. The map uses public OpenStreetMap tiles with visible attribution and no client key. Full instructions are in [README.md](README.md).
 
@@ -20,7 +20,7 @@ Vue owns ZIP text entry, state messages, list/map rendering, and one selected pr
 
 ## Screen-recorded demonstration
 
-The student supplied a shorter replacement recording for this submission. Per the student's description, it shows unresolved ZIPs `11111` and `00000`, a Boston search for `02108` with a selected hotel and map zoom, and a State College search for `16802` with a selected hotel and map interaction. Before sharing, confirm that it contains no API key, `.env` content, or private browser information. Add an instructor-accessible link here; the source clip is in a temporary local folder and is not itself an instructor-accessible link. The separate dated live checks below document observed 16802 and 02108 responses.
+The student supplied a shorter replacement recording for this submission. Per the student's description, it shows unresolved ZIPs `11111` and `00000`, a Boston search for `02108` with a selected hotel and map zoom, and a State College search for `16802` with a selected hotel and map interaction. Before sharing, confirm that it contains no API key, `.env` content, or private browser information. **Demo video link:** add an instructor-accessible Canvas/Kaltura share URL here. The separate dated live checks below document observed 16802 and 02108 responses.
 
 ## Verification and limitations
 
@@ -32,4 +32,4 @@ The first browser pass found a blank map despite a populated list: Leaflet circl
 
 ## AI disclosure and prompt trail
 
-OpenAI Codex (GPT-5) assisted with research, the SVG sketch, backend/frontend implementation, mocked tests, browser verification, and this report. The student supplied the assignment and approved installation of `leaflet@1.9.4` after the existing environment was checked. The [selected prompt excerpt](prompts/004-assignment2-part1-hotel-discovery.md) links the main instruction to the research, code, and verification decisions; the [evidence log](evidence/evidence-log.md) records the dependency retry and map-initialization correction. Student VS Code review, commit/push, demo-video link, and Canvas upload must be confirmed before this report is final.
+OpenAI Codex (GPT-5) assisted with research, the SVG sketch, backend/frontend implementation, mocked tests, browser verification, and this report. The student supplied the assignment and approved installation of `leaflet@1.9.4` after the existing environment was checked. The [selected prompt excerpt](prompts/004-assignment2-part1-hotel-discovery.md) links the main instruction to the research, code, and verification decisions; the [evidence log](evidence/evidence-log.md) records the dependency retry and map-initialization correction. Commit `571fa23` is the local implementation checkpoint. Student acceptance review, push, an instructor-accessible demo-video link, and Canvas submission remain pending.

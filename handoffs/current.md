@@ -1,6 +1,6 @@
 # Current handoff - Assignment 2, Part 1
 
-Updated 2026-09-28. Branch: `codex/assignment2-part1-hotel-discovery`. The working tree is **not committed or pushed**. Assignment 1 Part 2 remains preserved on `main`; the earlier ZIP activity changes were uncommitted when Assignment 2 work began and are carried on this branch. The local SQLite database and its existing bookings/deletions were not reset.
+Updated 2026-09-29. Branch: `codex/assignment2-part1-hotel-discovery`. The implementation snapshot is committed locally as `571fa23`; the branch is **not pushed**. Assignment 1 Part 2 remains preserved on `main`; the earlier ZIP activity changes were included because Assignment 2 builds on them. The local SQLite database and its existing bookings/deletions were not reset. An unrelated untracked Assignment 1 compressed video was excluded from the commit.
 
 ## What exists
 
@@ -20,9 +20,9 @@ Updated 2026-09-28. Branch: `codex/assignment2-part1-hotel-discovery`. The worki
 
 ## Incomplete and next task
 
-1. The student selected a shorter replacement recording on September 29 and asked that it be used without agent review. Per the student's description, it shows unresolved ZIPs 11111 and 00000, Boston ZIP 02108 with a selected hotel/map zoom, and State College ZIP 16802 with a selected hotel/map interaction. Confirm that this version shows no key or private browser data, save it somewhere durable, and add an instructor-accessible link to `report.md`. Separate live 16802 and 02108 checks remain documented in the verification record.
-2. Student VS Code review/acceptance is not yet confirmed. After review and the video link, commit the assessed Part 1 snapshot, push it, and replace the pending commit field and artifact links in `report.md`.
-3. `report.md` is a draft and **not ready for Canvas upload** while the instructor-accessible video link and assessed commit are pending. Canvas upload and class demonstration are also unconfirmed.
+1. The student selected a shorter replacement recording on September 29 and asked that it be used without agent review. Per the student's description, it shows unresolved ZIPs 11111 and 00000, Boston ZIP 02108 with a selected hotel/map zoom, and State College ZIP 16802 with a selected hotel/map interaction. Its supplied TemporaryItems path has expired, so it could not be copied into Finder/project evidence. Have the student reattach or save it to a durable location, confirm no key/private data is visible, and add an instructor-accessible link to `report.md`. Separate live 16802 and 02108 checks remain documented in the verification record.
+2. Student acceptance review is not yet confirmed. The implementation was manually inspected in VS Code and passed its tests/build before local commit `571fa23`; do not claim student acceptance. After the student supplies a durable, instructor-accessible video link and accepts the work, push the branch and update `report.md` with the final artifact links.
+3. `report.md` is a draft and **not ready for Canvas upload** while the branch is unpushed and the instructor-accessible video link is pending. Canvas upload and class demonstration are also unconfirmed.
 4. Part 2 persistent shortlist is not implemented and must not be claimed. Keep the existing local SQLite database intact when resuming.
 
 The project servers were running locally on `127.0.0.1:8000` and `127.0.0.1:5173` during verification; check whether they are still running before attempting to start another pair. Use README instructions if needed. See [verification](../evidence/assignment-2-part-1-verification.md) for exact observations.
