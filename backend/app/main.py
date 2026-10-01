@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from .config import geoapify_configuration_status
 from .geoapify import ZipLookupError, lookup_zip_location
 from .hotel_discovery import search_nearby_hotels
+from .saved_hotels import remove_saved_hotel, save_api_hotel, saved_hotels_for_zip
 from .database import (
     cancel_booking,
     create_booking,
@@ -29,6 +30,12 @@ app.add_middleware(
 class BookingRequest(BaseModel):
     user_id: str
     trip_id: str
+
+
+class SaveHotelRequest(BaseModel):
+    zip_code: str
+    center: dict[str, object]
+    hotel: dict[str, object]
 
 
 @app.on_event("startup")
@@ -64,6 +71,29 @@ def get_nearby_hotels(zip_code: str = Query("", description="Five-digit U.S. ZIP
         return search_nearby_hotels(zip_code)
     except ZipLookupError as error:
         raise HTTPException(status_code=error.status_code, detail=error.message) from None
+
+
+@app.get("/api/hotels/saved")
+def get_saved_hotels(zip_code: str = Query("", description="Five-digit U.S. ZIP code")) -> dict[str, object]:
+    try:
+        return saved_hotels_for_zip(zip_code)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from None
+
+
+@app.post("/api/hotels/saved", status_code=201)
+def post_saved_hotel(request: SaveHotelRequest) -> dict[str, object]:
+    try:
+        return save_api_hotel(request.zip_code, request.center, request.hotel)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from None
+
+
+@app.delete("/api/hotels/saved/{hotel_id}")
+def delete_saved_hotel(hotel_id: str) -> dict[str, str]:
+    if not remove_saved_hotel(hotel_id):
+        raise HTTPException(status_code=404, detail="Saved hotel not found.")
+    return {"message": "Saved hotel and its local records were removed."}
 
 
 @app.get("/api/stays")

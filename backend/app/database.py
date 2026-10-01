@@ -79,6 +79,36 @@ def initialize_database() -> None:
                 booked_on TEXT NOT NULL,
                 status TEXT NOT NULL CHECK(status IN ('confirmed', 'cancelled'))
             );
+            CREATE TABLE IF NOT EXISTS saved_hotels (
+                hotel_id TEXT PRIMARY KEY,
+                name TEXT,
+                address TEXT,
+                latitude REAL NOT NULL CHECK(latitude BETWEEN -90 AND 90),
+                longitude REAL NOT NULL CHECK(longitude BETWEEN -180 AND 180)
+            );
+            CREATE TABLE IF NOT EXISTS saved_hotel_zips (
+                hotel_id TEXT NOT NULL REFERENCES saved_hotels(hotel_id) ON DELETE CASCADE,
+                zip_code TEXT NOT NULL CHECK(
+                    zip_code GLOB '[0-9][0-9][0-9][0-9][0-9]'
+                ),
+                locality TEXT,
+                center_latitude REAL NOT NULL CHECK(center_latitude BETWEEN -90 AND 90),
+                center_longitude REAL NOT NULL CHECK(center_longitude BETWEEN -180 AND 180),
+                PRIMARY KEY (hotel_id, zip_code)
+            );
+            CREATE INDEX IF NOT EXISTS saved_hotel_zips_zip_idx
+                ON saved_hotel_zips(zip_code);
+            CREATE TABLE IF NOT EXISTS demo_hotel_nights (
+                hotel_id TEXT NOT NULL REFERENCES saved_hotels(hotel_id) ON DELETE CASCADE,
+                stay_date TEXT NOT NULL CHECK(
+                    stay_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
+                ),
+                nightly_rate_cents INTEGER NOT NULL DEFAULT 10000
+                    CHECK(typeof(nightly_rate_cents) = 'integer' AND nightly_rate_cents >= 0),
+                rooms_available INTEGER NOT NULL DEFAULT 20
+                    CHECK(typeof(rooms_available) = 'integer' AND rooms_available >= 0),
+                PRIMARY KEY (hotel_id, stay_date)
+            );
             """
         )
         seeded = db.execute(
