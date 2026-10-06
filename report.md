@@ -55,4 +55,4 @@ My Part 2 demo is in three short clips: [the successful question, SQL, rows, and
 
 I used OpenAI Codex (GPT-5) to help with research, design, coding, and checks. Gemini 3.5 Flash-Lite is the model the app calls at runtime. My selected [prompt record](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/prompts/006-assignment2-part2-rag.md) and [evidence log](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/evidence/evidence-log.md) show the main instructions, changes, checks, and a revised approach. Codex's first live model check was blocked by its restricted network; a later permitted backend-only request worked. I did not count a fluent answer alone as proof—the saved rows and checked stay math are shown with it.
 
-This is the `report.md` I will upload for Assignment 2 Part 2 after the final Git push.
+This is the `report.md` I will upload for Assignment 2 Part 2. The reviewed work is now on GitHub's `main` branch.

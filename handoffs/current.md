@@ -1,6 +1,6 @@
 # Current handoff - Assignment 2 Part 2
 
-Updated October 6, 2026. The working branch is `main`. Assignment 2 Part 2 was developed on `codex/assignment2-part2-rag` and fast-forwarded into `main`. Its implementation checkpoint is `c40bc73898b2d80b25b791375ff1ea080c46513e`. The student reviewed the files in VS Code, recorded the browser and terminal demos, accepted the results, and authorized the commit, merge, and push. Canvas upload and a class demonstration have not been claimed.
+Updated October 6, 2026. The working branch is `main`. Assignment 2 Part 2 was developed on `codex/assignment2-part2-rag` and fast-forwarded into `main`. Its implementation checkpoint is `c40bc73898b2d80b25b791375ff1ea080c46513e`. Both the feature branch and `main` were pushed to GitHub. The student reviewed the files in VS Code, recorded the browser and terminal demos, accepted the results, and authorized the commit, merge, and push. Canvas upload and a class demonstration have not been claimed.
 
 ## What exists
 
@@ -17,4 +17,4 @@ Updated October 6, 2026. The working branch is `main`. Assignment 2 Part 2 was d
 
 ## Next concrete task
 
-Confirm `main` and `origin/main` agree and the repository links in `report.md` resolve, then upload **only `report.md`** to the Assignment 2 Part 2 Canvas item. The three MediaSpace links inside it provide the recorded demonstration. The student should make sure the instructor can open them and complete any separate in-class demonstration if required. Preserve the ignored database and credentials.
+Upload **only `report.md`** to the Assignment 2 Part 2 Canvas item. The three MediaSpace links inside it provide the recorded demonstration. `main` and `origin/main` agreed after the push, and Codex opened the GitHub report while logged out. The student should make sure the instructor can open the MediaSpace clips and complete any separate in-class demonstration if required. Preserve the ignored database and credentials.
