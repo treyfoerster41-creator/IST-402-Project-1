@@ -4,8 +4,9 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from .config import geoapify_configuration_status
+from .config import gemini_configuration_status, geoapify_configuration_status
 from .geoapify import ZipLookupError, lookup_zip_location
+from .hotel_advisor import AdvisorError, answer_hotel_question
 from .hotel_discovery import search_nearby_hotels
 from .saved_hotels import remove_saved_hotel, save_api_hotel, saved_hotels_for_zip
 from .database import (
@@ -38,6 +39,10 @@ class SaveHotelRequest(BaseModel):
     hotel: dict[str, object]
 
 
+class HotelQuestion(BaseModel):
+    question: str
+
+
 @app.on_event("startup")
 def startup() -> None:
     initialize_database()
@@ -45,7 +50,7 @@ def startup() -> None:
 
 @app.get("/api/health")
 def health() -> dict[str, str]:
-    return {"status": "ok", "geoapify": geoapify_configuration_status()}
+    return {"status": "ok", "geoapify": geoapify_configuration_status(), "gemini": gemini_configuration_status()}
 
 
 def zip_location_response(zip_code: str) -> dict[str, object]:
@@ -94,6 +99,14 @@ def delete_saved_hotel(hotel_id: str) -> dict[str, str]:
     if not remove_saved_hotel(hotel_id):
         raise HTTPException(status_code=404, detail="Saved hotel not found.")
     return {"message": "Saved hotel and its local records were removed."}
+
+
+@app.post("/api/hotels/ask")
+def ask_about_saved_hotels(request: HotelQuestion) -> dict[str, object]:
+    try:
+        return answer_hotel_question(request.question)
+    except AdvisorError as error:
+        raise HTTPException(status_code=error.status_code, detail=error.message) from None
 
 
 @app.get("/api/stays")

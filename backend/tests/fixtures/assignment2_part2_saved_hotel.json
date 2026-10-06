@@ -1,0 +1,48 @@
+{
+  "kind": "synthetic fixture - not live Geoapify data",
+  "save_request": {
+    "zip_code": "16802",
+    "center": {
+      "postcode": "16802",
+      "country_code": "us",
+      "latitude": 40.8,
+      "longitude": -77.9,
+      "locality": "Test Town"
+    },
+    "hotel": {
+      "place_id": "fixture-hotel-1",
+      "name": "Fixture Hotel",
+      "address": "1 Test Street",
+      "latitude": 40.81,
+      "longitude": -77.91
+    }
+  },
+  "second_save_request": {
+    "zip_code": "16802",
+    "center": {
+      "postcode": "16802",
+      "country_code": "us",
+      "latitude": 40.8,
+      "longitude": -77.9,
+      "locality": "Test Town"
+    },
+    "hotel": {
+      "place_id": "fixture-hotel-2",
+      "name": "Second Fixture Hotel",
+      "address": "2 Test Street",
+      "latitude": 40.82,
+      "longitude": -77.92
+    }
+  },
+  "night_override": {
+    "stay_date": "2026-10-10",
+    "nightly_rate_cents": 12500,
+    "rooms_available": 7
+  },
+  "question": "In ZIP 16802, what is the total from 2026-10-10 to 2026-10-12?",
+  "expected": {
+    "nights_required": 2,
+    "total_cost_cents": 22500,
+    "minimum_rooms_available": 7
+  }
+}

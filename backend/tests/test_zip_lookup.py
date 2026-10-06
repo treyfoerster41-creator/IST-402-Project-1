@@ -252,10 +252,10 @@ class ZipLookupRouteTests(unittest.TestCase):
 
     def test_health_retains_status_and_exposes_only_key_presence(self):
         for key, expected in (("", "key is not configured"), (SYNTHETIC_KEY, "key is configured")):
-            with self.subTest(expected=expected), patch("backend.app.config.geoapify_api_key", return_value=key):
+            with self.subTest(expected=expected), patch("backend.app.config.geoapify_api_key", return_value=key), patch("backend.app.config.gemini_api_key", return_value=""):
                 response = self.client.get("/api/health")
                 self.assertEqual(response.status_code, 200)
-                self.assertEqual(response.json(), {"status": "ok", "geoapify": expected})
+                self.assertEqual(response.json(), {"status": "ok", "geoapify": expected, "gemini": "key is not configured"})
                 self.assertNotIn(SYNTHETIC_KEY, response.text)
         self.http.assert_not_called()
 

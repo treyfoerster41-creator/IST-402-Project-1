@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="900" viewBox="0 0 1120 900" role="img" aria-labelledby="title description">
+  <title id="title">Early mockup for saved-hotel question panel</title>
+  <desc id="description">Sketch of the existing ZIP list and map above a new question input, answer, and expandable SQL and records evidence, with loading, no-match, and error states.</desc>
+  <rect width="1120" height="900" fill="#edf3e9"/>
+  <text x="64" y="54" font-family="Arial, sans-serif" font-size="22" fill="#31594d">EARLY MOCKUP • OCTOBER 6, 2026</text>
+  <text x="64" y="105" font-family="Georgia, serif" font-size="44" fill="#163b32">Hotels near a ZIP code</text>
+  <rect x="64" y="139" width="992" height="308" rx="12" fill="#fbfaf7" stroke="#aabcb1"/>
+  <text x="89" y="177" font-family="Arial, sans-serif" font-size="20" fill="#163b32">Existing Part 1 + local storage: ZIP search, saved list, map, Add / Remove</text>
+  <rect x="89" y="203" width="424" height="210" rx="8" fill="#e4eee8"/>
+  <text x="111" y="241" font-family="Arial, sans-serif" font-size="19" fill="#163b32">Saved hotel list + dated demo nights</text>
+  <text x="111" y="280" font-family="Arial, sans-serif" font-size="17" fill="#31594d">Scholar Hotel State College</text>
+  <text x="111" y="309" font-family="Arial, sans-serif" font-size="16" fill="#31594d">Oct 10: $125 • 7 rooms</text>
+  <text x="111" y="338" font-family="Arial, sans-serif" font-size="16" fill="#31594d">Oct 11: $100 • 20 rooms</text>
+  <rect x="537" y="203" width="494" height="210" rx="8" fill="#d2e5d2"/>
+  <text x="710" y="315" font-family="Arial, sans-serif" font-size="24" fill="#31594d">Existing map</text>
+  <rect x="64" y="474" width="992" height="363" rx="12" fill="#fbfaf7" stroke="#aabcb1"/>
+  <text x="90" y="521" font-family="Georgia, serif" font-size="32" fill="#163b32">Ask about saved hotels</text>
+  <text x="90" y="552" font-family="Arial, sans-serif" font-size="17" fill="#31594d">Uses only local saved places and simulated classroom rates / availability.</text>
+  <rect x="90" y="577" width="759" height="54" rx="7" fill="#fff" stroke="#77968a"/>
+  <text x="107" y="612" font-family="Arial, sans-serif" font-size="17" fill="#698379">Which saved hotel in 16802 has rooms Oct 10–12?</text>
+  <rect x="863" y="577" width="166" height="54" rx="7" fill="#205a4b"/>
+  <text x="911" y="612" font-family="Arial, sans-serif" font-size="18" fill="#fff">Ask</text>
+  <rect x="90" y="650" width="939" height="109" rx="7" fill="#e4eee8"/>
+  <text x="108" y="679" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#163b32">Answer based on saved records</text>
+  <text x="108" y="708" font-family="Arial, sans-serif" font-size="16" fill="#31594d">Scholar Hotel: Oct 10–11, $225 total; minimum 7 rooms shown.</text>
+  <text x="108" y="737" font-family="Arial, sans-serif" font-size="15" fill="#31594d">▸ Show proposed SQL and retrieved records</text>
+  <text x="90" y="804" font-family="Arial, sans-serif" font-size="16" fill="#8b523c">States: loading…  |  no saved match / missing night  |  model or query error</text>
+  <text x="64" y="869" font-family="Arial, sans-serif" font-size="15" fill="#31594d">Design may change after browser checks. This sketch does not show a working feature.</text>
+</svg>

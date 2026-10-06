@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue';
 import ZipLookup from './components/ZipLookup.vue';
 import HotelDiscovery from './components/HotelDiscovery.vue';
+import HotelAdvisor from './components/HotelAdvisor.vue';
 
 const city = ref('Boston');
 const stays = ref([]);
@@ -140,10 +141,11 @@ onMounted(async () => {
   <main class="page-shell">
     <header class="site-header">
       <p class="brand">expedia<span>lite</span></p>
-      <p class="part-label">TRAVEL + LIVE HOTEL DISCOVERY</p>
+      <p class="part-label">TRAVEL + LOCAL HOTEL ADVISOR</p>
     </header>
 
     <HotelDiscovery />
+    <HotelAdvisor />
     <ZipLookup />
 
     <section class="hero">

@@ -17,3 +17,17 @@ def geoapify_api_key() -> str:
 
 def geoapify_configuration_status() -> str:
     return "key is configured" if geoapify_api_key() else "key is not configured"
+
+
+def gemini_api_key() -> str:
+    """Read the private Gemini key only inside the backend."""
+    return os.environ.get("GEMINI_API_KEY", "").strip()
+
+
+def gemini_model() -> str:
+    """Use a stable text model with a documented free tier by default."""
+    return os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite").strip()
+
+
+def gemini_configuration_status() -> str:
+    return "key is configured" if gemini_api_key() else "key is not configured"
