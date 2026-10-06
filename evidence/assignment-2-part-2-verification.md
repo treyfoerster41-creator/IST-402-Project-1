@@ -44,8 +44,8 @@ The [fixed JSON sample](../backend/tests/fixtures/assignment2_part2_saved_hotel.
 
 The SQL guard was tested against DELETE, an unrelated SQLite schema read, multiple statements, and a SELECT that invented a rate. Each was rejected. A byte-for-byte comparison of the temporary database before and after these rejected proposals matched. No test modifies the student's ignored `backend/data/expedia_lite.db`.
 
-After the code changes, the full backend suite passed **51 tests** with no resource warnings, the Vue production build passed, and `git diff --check` passed. Earlier October 1 student screenshots, DB Browser observations, refresh, and Network-panel checks remain in [local hotel activity](local-hotel-activity.md). They are not evidence that the student personally reviewed the new chatbot UI.
+After the code changes, the full backend suite passed **51 tests** with no resource warnings, the Vue production build passed, and `git diff --check` passed. The 51 tests and Vue build passed again after the feature branch was fast-forwarded into `main`. In the merged app, Codex's browser check showed the saved Scholar hotel for ZIP 16802, its map marker, and the October 10 $125.00/7-room edit. Earlier October 1 student screenshots, DB Browser observations, refresh, and Network-panel checks remain in [local hotel activity](local-hotel-activity.md).
 
-## Remaining submission steps
+## Git and remaining submission step
 
-- After the student accepts the browser results, commit/push the reviewed changes and replace the report's pending assessed commit with the final pushed commit. Canvas upload and TA/instructor demonstration remain student actions.
+The student accepted the browser results and authorized committing, merging, and pushing. The implementation commit is `c40bc73898b2d80b25b791375ff1ea080c46513e`; `main` was fast-forwarded to it before the combined checks above. The final documentation update and push are still pending as this line is written. Canvas upload and TA/instructor demonstration remain student actions.

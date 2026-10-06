@@ -2,7 +2,7 @@
 
 ## Repository and setup
 
-For Part 2, I kept working in my Vue, FastAPI, and SQLite travel app: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1). I built this part on `codex/assignment2-part2-rag`. **Assessed implementation commit: pending final push.** I kept my [Part 1 report](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/docs/assignment-2-part-1-report-archive.md) in the repo instead of losing it when I updated this report.
+For Part 2, I kept working in my Vue, FastAPI, and SQLite travel app: [treyfoerster41-creator/IST-402-Project-1](https://github.com/treyfoerster41-creator/IST-402-Project-1). I built this part on `codex/assignment2-part2-rag` and merged it into `main`. My assessed implementation checkpoint is [c40bc73898b2d80b25b791375ff1ea080c46513e](https://github.com/treyfoerster41-creator/IST-402-Project-1/commit/c40bc73898b2d80b25b791375ff1ea080c46513e). I kept my [Part 1 report](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/docs/assignment-2-part-1-report-archive.md) in the repo instead of losing it when I updated this report.
 
 To run the app, I create a Python virtual environment, install `backend/requirements.txt`, and start `uvicorn backend.app.main:app --port 8000`. In a second terminal I run `npm ci --prefix frontend` and `npm run dev --prefix frontend`, then open `http://127.0.0.1:5173` (Firefox also works). I keep `GEOAPIFY_API_KEY` and `GEMINI_API_KEY` in the ignored project-root `.env`, using `.env.example` as a key-free template. Neither key belongs in the frontend, report, recording, or Git. [README.md](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/README.md) has the full instructions. The backend health route reports only whether each key is configured.
 
@@ -45,7 +45,7 @@ LIMIT 40
 
 The second Gemini request got my original question, the checked SQL, both rows, and the backend's 22500-cent total and minimum of 7 rooms. The answer matched the math: $125 + $100 = $225. Geoapify's live results can change, but this check used my one saved local hotel, not a fixed count of live places.
 
-The final automated checks passed: **51 backend tests**, the Vue production build, and `git diff --check`. The advisor tests use a synthetic temporary database, not my saved local hotel file. The fixed sample also contains a second synthetic hotel to repeat a two-hotel comparison without changing my saved Scholar record.
+After merging into `main`, the automated checks passed again: **51 backend tests** and the Vue production build. `git diff --check` also passed. I checked the combined app in the browser: ZIP `16802` still returned my one saved Scholar hotel, its map marker, and the October 10 $125.00/7-room edit. The advisor tests use a synthetic temporary database, not my saved local hotel file. The fixed sample also contains a second synthetic hotel for a two-hotel comparison without changing my saved Scholar record.
 
 I reviewed the new files in VS Code on October 6 and they looked good to me. I then tried the successful question in the browser and recorded the $225 answer, SQL, and two rows. I also recorded the ZIP `00000` question so the no-match behavior is visible. Finally, I ran the focused SQL safety test in VS Code's terminal; it finished with `Ran 1 test` and `OK`. Codex checked the clips for legibility and did not see an API key or `.env` contents. These are my manual browser and terminal actions; the 51-test suite and frontend build are separate automated checks.
 
@@ -55,4 +55,4 @@ My Part 2 demo is in three short clips: [the successful question, SQL, rows, and
 
 I used OpenAI Codex (GPT-5) to help with research, design, coding, and checks. Gemini 3.5 Flash-Lite is the model the app calls at runtime. My selected [prompt record](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/prompts/006-assignment2-part2-rag.md) and [evidence log](https://github.com/treyfoerster41-creator/IST-402-Project-1/blob/main/evidence/evidence-log.md) show the main instructions, changes, checks, and a revised approach. Codex's first live model check was blocked by its restricted network; a later permitted backend-only request worked. I did not count a fluent answer alone as proof—the saved rows and checked stay math are shown with it.
 
-I will upload this `report.md` for Assignment 2 Part 2 after the final Git checkpoint is complete.
+This is the `report.md` I will upload for Assignment 2 Part 2 after the final Git push.
